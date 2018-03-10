@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Zeche Carl",
+    "location": {
+      "address": "Wilhelm-Nieswandt-Allee 100",
+      "zipCode": "45326",
+      "city": "Essen"
+    }
+  },
+  {
+    "name": "Zeche Helene",
+    "location": {
+      "address": "Twentmannstraße 125",
+      "zipCode": "45326",
+      "city": "Essen"
+    }
+  },
+  {
+    "name": "Zeche Zollverein",
+    "location": {
+      "address": "Gelsenkirchener Str. 181",
+      "zipCode": "45309",
+      "city": "Essen"
+    }
+  }
+]

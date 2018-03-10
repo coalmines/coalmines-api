@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb-base"
+  ],
+  "plugins": [
+    "graphql",
+    "import"
+  ],
+  "env": {
+    "jasmine": true
+  },
+  "rules": {
+    "no-param-reassign": [
+      2,
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "ctx",
+          "context"
+        ]
+      }
+    ]
+  }
+}
