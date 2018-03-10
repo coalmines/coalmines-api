@@ -18,7 +18,6 @@ all: prepare
 	@mkdir -p $(BUNDLE_DIR)
 	$(BABEL) --copy-files --ignore spec.js --out-dir $(BUNDLE_DIR)/src $(SRC_DIR)
 	@cp package.json $(BUNDLE_DIR)/
-	@cp main.js $(BUNDLE_DIR)/
 	@cd $(BUNDLE_DIR) && $(NPM_INSTALL) --production
 
 dist:
