@@ -29,8 +29,8 @@ the respective values the provider gives you.
 
 Providers supported:
 
-[x] GitHub
-[ ] Twitter
+- [x] GitHub
+- [ ] Twitter
 
 ## Logging
 By default, log output is in plain console format. When running this service in
