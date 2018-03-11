@@ -11,9 +11,12 @@ import { coalMines } from '../queries/coalMines';
 import typeDefs from './mainTypeDefs';
 import logger from '../lib/logger';
 
+const user = (obj, args, context) => context.user;
+
 const resolvers = {
   Query: {
     coalMines,
+    user,
   },
 };
 

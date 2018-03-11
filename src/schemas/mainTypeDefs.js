@@ -29,14 +29,17 @@
  */
 import CoalMine from '../types/coalMine';
 import Location from '../types/location';
+import User from '../types/user';
 
 export default `
   ${CoalMine}
   ${Location}
+  ${User}
   scalar Date
   scalar Time
   scalar DateTime
   type Query {
     coalMines: [CoalMine]
+    user: User
   }
 `;
