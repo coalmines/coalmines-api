@@ -20,6 +20,18 @@ A live version with the GraphiQL interface can be found at
 ## Environment Variables
 See `env.sh`. Set `NODE_ENV` to `production` for production mode.
 
+### OAuth Support
+For authentication integration, you will need to set up the app for the
+respective authentication provider first. Then set `APP_URL` to match the
+protocol and host where you deployed the app, e.g., `https://coalmines.ruhr`.
+For each provider, set `[PROVIDER]_CLIENT_ID` and `[PROVIDER]_CLIENT_SECRET` to
+the respective values the provider gives you.
+
+Providers supported:
+
+[x] GitHub
+[ ] Twitter
+
 ## Logging
 By default, log output is in plain console format. When running this service in
 production mode, the output is in JSON format.

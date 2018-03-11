@@ -3,10 +3,14 @@ import Koa from 'koa';
 import koaBody from 'koa-bodyparser';
 import session from 'koa-session';
 import Router from 'koa-router';
+import passport from 'koa-passport';
 // Apollo server :)
 import { graphqlKoa, graphiqlKoa } from 'apollo-server-koa';
 // GraphQL schemas defined in this app
 import mainSchema from './schemas/main';
+// Passport auth integration
+import addAuth from './lib/auth';
+
 import { createLogger } from './lib/logger';
 import { port, appSecret } from './lib/env';
 
@@ -40,17 +44,25 @@ app.use(koaBody({ jsonLimit: '10mb' }));
 app.keys = [appSecret];
 app.use(session(app));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 /**
  * routes
  */
 const router = new Router();
 
+addAuth(router);
+
 /**
  * main
  */
 function main(ctx, next) {
-  const { user } = ctx.session;
-  const context = { user };
+  const context = {};
+  if (ctx.session.passport) {
+    const { user } = ctx.session.passport;
+    context.user = user;
+  }
   return graphqlKoa({
     schema: mainSchema,
     context,
