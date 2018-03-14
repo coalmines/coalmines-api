@@ -24,13 +24,13 @@ See `env.sh`. Set `NODE_ENV` to `production` for production mode.
 For authentication integration, you will need to set up the app for the
 respective authentication provider first. Then set `APP_URL` to match the
 protocol and host where you deployed the app, e.g., `https://coalmines.ruhr`.
-For each provider, set `[PROVIDER]_CLIENT_ID` and `[PROVIDER]_CLIENT_SECRET` to
+For each provider, set the environment variables for the credentials to
 the respective values the provider gives you.
 
 Providers supported:
 
-- [x] GitHub
-- [ ] Twitter
+- [x] GitHub: `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`
+- [x] Twitter: `TWITTER_CONSUMER_KEY` and `TWITTER_CONSUMER_SECRET`
 
 ## Logging
 By default, log output is in plain console format. When running this service in

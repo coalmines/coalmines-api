@@ -8,3 +8,5 @@ export const baseUrl = getenv('APP_URL', `http://localhost:${port}`);
 
 export const gitHubClientId = getenv('GITHUB_CLIENT_ID', '');
 export const gitHubClientSecret = getenv('GITHUB_CLIENT_SECRET', '');
+export const twitterConsumerKey = getenv('TWITTER_CONSUMER_KEY', '');
+export const twitterConsumerSecret = getenv('TWITTER_CONSUMER_SECRET', '');
