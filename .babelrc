@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "targets": {
           "node": "8.9.0"
@@ -10,7 +10,7 @@
     ]
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-async-generator-functions"
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-async-generator-functions"
   ]
 }
