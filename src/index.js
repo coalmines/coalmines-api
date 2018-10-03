@@ -1,11 +1,10 @@
 // Koa is our HTTP server
 import Koa from 'koa';
-import koaBody from 'koa-bodyparser';
 import session from 'koa-session';
 import Router from 'koa-router';
 import passport from 'koa-passport';
 // Apollo server :)
-import { graphqlKoa, graphiqlKoa } from 'apollo-server-koa';
+import { ApolloServer } from 'apollo-server-koa';
 // GraphQL schemas defined in this app
 import mainSchema from './schemas/main';
 // Passport auth integration
@@ -33,11 +32,6 @@ app.use(async (ctx, next) => {
 });
 
 /**
- * body parser middleware for POST requests
- */
-app.use(koaBody({ jsonLimit: '10mb' }));
-
-/**
  * Session setup
  * @see https://github.com/koajs/session
  */
@@ -55,22 +49,15 @@ const router = new Router();
 addAuth(router);
 
 /**
- * main
+ * pass the context to Apollo Server
  */
-function main(ctx, next) {
-  const context = {};
+function passContext({ ctx }) {
   if (ctx.session.passport) {
     const { user } = ctx.session.passport;
-    context.user = user;
+    return { user };
   }
-  return graphqlKoa({
-    schema: mainSchema,
-    context,
-  })(ctx, next);
+  return {};
 }
-router.post('/graphql', main);
-router.get('/graphql', main);
-router.get('/graphiql', graphiqlKoa({ endpointURL: '/graphql' }));
 
 app.use(router.routes());
 app.use(router.allowedMethods());
@@ -82,6 +69,13 @@ app.use(router.allowedMethods());
 app.on('error', (err, ctx = {}) => {
   logger.error('Server error', err, ctx.session);
 });
+
+const server = new ApolloServer({
+  schema: mainSchema,
+  context: passContext,
+  introspection: true,
+});
+server.applyMiddleware({ app, path: '/graphiql' });
 
 /**
  * launch the server
