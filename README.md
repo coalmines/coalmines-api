@@ -9,8 +9,16 @@ It does not implement business logic. To separate concerns, this service honors
 The HTTP endpoints are defined through [Koa](https://github.com/koajs/koa).
 
 ### Live Version
-A live version with the GraphiQL interface can be found at
-[coalmines.ruhr](https://coalmines.ruhr/graphiql).
+A live version of this project can be found at [coalmines.ruhr](https://coalmines.ruhr).
+
+### UI
+As of Apollo Server 2, GraphQL Playground is available on `/graphql` as a UI.
+However, it is not sending cookies, breaking cookie-based authentication.
+For a [workaround](https://github.com/prisma/graphql-playground/issues/748#issuecomment-412524510),
+open the settings in the UI (gear icon in the upper right), and set
+`"request.credentials": "same-origin"`.
+
+For a consistent user experience, GraphiQL is still available on `/graphiql`.
 
 ## Requirements
 - Node.js
@@ -35,6 +43,11 @@ Providers supported:
 ## Logging
 By default, log output is in plain console format. When running this service in
 production mode, the output is in JSON format.
+
+## Health Check
+A health check endpoint implementing
+[Nadareishvili's IETF draft](https://tools.ietf.org/id/draft-inadarei-api-health-check-01.html)
+is available at `/.well-known/apollo/server-health`.
 
 ## Running and Building
 To run the app, set the necessary environment variables based on the file
