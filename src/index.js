@@ -11,7 +11,7 @@ import mainSchema from './schemas/main';
 import addAuth from './lib/auth';
 
 import { createLogger } from './lib/logger';
-import { port, appSecret } from './lib/env';
+import { graphqlEndpoint, port, appSecret } from './lib/env';
 
 const logger = createLogger('koa');
 const app = new Koa();
@@ -75,7 +75,7 @@ const server = new ApolloServer({
   context: passContext,
   introspection: true,
 });
-server.applyMiddleware({ app, path: '/graphiql' });
+server.applyMiddleware({ app, path: graphqlEndpoint });
 
 /**
  * launch the server

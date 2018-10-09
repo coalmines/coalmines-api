@@ -3,6 +3,7 @@ import { Strategy as GitHubStrategy } from 'passport-github';
 import { Strategy as TwitterStrategy } from 'passport-twitter';
 import {
   baseUrl,
+  graphiqlEndpoint,
   isProduction,
   gitHubClientId,
   gitHubClientSecret,
@@ -21,7 +22,7 @@ const twitterCbRoute = `${twitterAuthRoute}/callback`;
 
 const failureRedirect = '/auth/fail';
 const successRedirect = (ctx) => {
-  ctx.redirect('/graphiql');
+  ctx.redirect(graphiqlEndpoint);
 };
 
 passport.serializeUser((user, done) => {

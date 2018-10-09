@@ -6,6 +6,9 @@ export const appSecret = getenv('APP_SECRET');
 export const port = getenv('PORT');
 export const baseUrl = getenv('APP_URL', `http://localhost:${port}`);
 
+export const graphqlEndpoint = getenv('GRAPHQL_ENDPOINT', '/graphql');
+export const graphiqlEndpoint = getenv('GRAPHIQL_ENDPOINT', '/graphiql');
+
 export const gitHubClientId = getenv('GITHUB_CLIENT_ID', '');
 export const gitHubClientSecret = getenv('GITHUB_CLIENT_SECRET', '');
 export const twitterConsumerKey = getenv('TWITTER_CONSUMER_KEY', '');
