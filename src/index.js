@@ -9,6 +9,7 @@ import { ApolloServer } from 'apollo-server-koa';
 import mainSchema from './schemas/main';
 // Passport auth integration
 import addAuth from './lib/auth';
+import addGraphiql from './lib/graphiql';
 
 import { createLogger } from './lib/logger';
 import { graphqlEndpoint, port, appSecret } from './lib/env';
@@ -47,6 +48,7 @@ app.use(passport.session());
 const router = new Router();
 
 addAuth(router);
+addGraphiql(router);
 
 /**
  * pass the context to Apollo Server
