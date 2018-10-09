@@ -69,7 +69,10 @@ export default function addAuth(router) {
         },
       );
       passport.use(gitHubStrategy);
-      router.get(gitHubAuthRoute, passport.authenticate('github'));
+      router.get(
+        gitHubAuthRoute,
+        passport.authenticate('github'),
+      );
       router.get(
         gitHubCbRoute,
         passport.authenticate('github', { failureRedirect }),
@@ -93,7 +96,10 @@ export default function addAuth(router) {
         },
       );
       passport.use(twitterStrategy);
-      router.get(twitterAuthRoute, passport.authenticate('twitter'));
+      router.get(
+        twitterAuthRoute,
+        passport.authenticate('twitter'),
+      );
       router.get(
         twitterCbRoute,
         passport.authenticate('twitter', { failureRedirect }),
