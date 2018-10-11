@@ -6,7 +6,8 @@ import passport from 'koa-passport';
 // Apollo server :)
 import { ApolloServer } from 'apollo-server-koa';
 // GraphQL schemas defined in this app
-import mainSchema from './schemas/main';
+import typeDefs from './schemas/mainTypeDefs';
+import { resolvers, resolveFunctions } from './schemas/main';
 // Passport auth integration
 import addAuth from './lib/auth';
 import addGraphiql from './lib/graphiql';
@@ -73,7 +74,9 @@ app.on('error', (err, ctx = {}) => {
 });
 
 const server = new ApolloServer({
-  schema: mainSchema,
+  typeDefs,
+  resolvers,
+  resolveFunctions,
   context: passContext,
   introspection: true,
 });
