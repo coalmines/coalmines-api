@@ -35,7 +35,7 @@ const types = gql`
   scalar Time
   scalar DateTime
   type Query {
-    coalMines: [CoalMine]
+    coalMines(city: String): [CoalMine]
     user: User
   }
 `;
