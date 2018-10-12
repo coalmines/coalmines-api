@@ -21,7 +21,15 @@
       "address": "Gelsenkirchener Str. 181",
       "zipCode": "45309",
       "city": "Essen"
-    }
+    },
+    "verticalTunnels": [
+      {
+        "id": "623d23e7-e0b7-4fde-8080-f782a4ffaa0f"
+      },
+      {
+        "id": "0ffe6ac2-bde2-43ce-bfd9-38aa751ffb1a"
+      }
+    ]
   },
   {
     "name": "Zeche Holland",
