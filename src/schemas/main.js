@@ -4,7 +4,6 @@ import {
   GraphQLDateTime,
 } from 'graphql-iso-date';
 import { coalMines } from '../queries/coalMines';
-import typeDefs from './mainTypeDefs';
 
 const user = (obj, args, context) => context.user;
 
