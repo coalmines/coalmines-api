@@ -29,6 +29,7 @@
   "dependencies": {
     "@cdm-logger/server": "^3.0.2",
     "apollo-server-koa": "^2.1.0",
+    "babel-core": "^7.0.0-bridge.0",
     "bunyan": "^2.0.2",
     "getenv": "^0.7.0",
     "graphql": "^14.0.2",
