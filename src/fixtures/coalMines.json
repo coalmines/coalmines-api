@@ -22,5 +22,13 @@
       "zipCode": "45309",
       "city": "Essen"
     }
+  },
+  {
+    "name": "Zeche Holland",
+    "location": {
+      "city": "Bochum",
+      "zipCode": "44866",
+      "address": "Emil-Weitz-Straße 2"
+    }
   }
 ]
