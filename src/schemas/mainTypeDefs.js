@@ -27,6 +27,7 @@
 import { gql } from 'apollo-server-koa';
 
 import CoalMine from '../types/coalMine';
+import VerticalTunnel from '../types/verticalTunnel';
 import Location from '../types/location';
 import User from '../types/user';
 
@@ -36,12 +37,17 @@ const types = gql`
   scalar DateTime
   type Query {
     coalMines(city: String): [CoalMine]
+    verticalTunnels: [VerticalTunnel]
     user: User
+  }
+  type Mutation {
+    addVerticalTunnel(name: String!): VerticalTunnel
   }
 `;
 
 export default [
   CoalMine,
+  VerticalTunnel,
   Location,
   User,
   types,
