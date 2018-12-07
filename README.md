@@ -1,5 +1,7 @@
 # Coal Mines API
 
+![Build Status](https://api.cirrus-ci.com/github/coalmines/coalmines-api.svg)
+
 ## Description
 This service exposes a [GraphQL](http://facebook.github.io/graphql/) API via
 HTTP. It provides the main gateway for client applications.

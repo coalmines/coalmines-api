@@ -1,0 +1,17 @@
+freebsd_instance:
+  image: freebsd-11-2-release-amd64
+test_task:
+  provision_script:
+    - pkg install -y node8 npm-node8
+    - npm i -g @babel/core@7.2 @babel/cli@7.2
+  prepare_script: make NPM=/usr/local/bin/npm prepare
+  script: npm test
+build_task:
+  provision_script:
+    - pkg install -y node8 npm-node8
+    - npm i -g @babel/core@7.2 @babel/cli@7.2
+  depends_on:
+    - test
+  script:
+    - make NPM=/usr/local/bin/npm BABEL=/usr/local/bin/babel
+    - make TAR=/usr/bin/tar dist
