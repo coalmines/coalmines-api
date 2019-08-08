@@ -13,11 +13,15 @@ NPM := /usr/bin/npm
 NPM_INSTALL := $(NPM) install
 TAR := /bin/tar
 
-all: prepare
-	@echo "Creating application bundle..."
+all: prepare build
+
+build:
 	@mkdir -p $(BUNDLE_DIR)
 	$(BABEL) --copy-files --ignore spec.js --out-dir $(BUNDLE_DIR)/src $(SRC_DIR)
 	@cp package.json $(BUNDLE_DIR)/
+
+bundle:
+	@echo "Creating application bundle..."
 	@cd $(BUNDLE_DIR) && $(NPM_INSTALL) --production
 
 dist:
