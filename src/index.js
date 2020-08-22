@@ -73,12 +73,19 @@ app.on('error', (err, ctx = {}) => {
   logger.error('Server error', err, ctx.session);
 });
 
+/**
+ * Both introspection and GraphQL Playground are enabled here. Note that these
+ * are *not* meant for actual production APIs. As this here is for showcasing,
+ * acting as a playground thusly, both are enabled. For details, see also:
+ * https://www.apollographql.com/docs/apollo-server/testing/graphql-playground/
+ */
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   resolveFunctions,
   context: passContext,
   introspection: true,
+  playground: true,
 });
 server.applyMiddleware({ app, path: graphqlEndpoint });
 
