@@ -10,7 +10,6 @@ import typeDefs from './schemas/mainTypeDefs';
 import { resolvers, resolveFunctions } from './schemas/main';
 // Passport auth integration
 import addAuth from './lib/auth';
-import addGraphiql from './lib/graphiql';
 
 import { createLogger } from './lib/logger';
 import { graphqlEndpoint, port, appSecret } from './lib/env';
@@ -49,7 +48,6 @@ app.use(passport.session());
 const router = new Router();
 
 addAuth(router);
-addGraphiql(router);
 
 /**
  * pass the context to Apollo Server
@@ -73,12 +71,19 @@ app.on('error', (err, ctx = {}) => {
   logger.error('Server error', err, ctx.session);
 });
 
+/**
+ * Both introspection and GraphQL Playground are enabled here. Note that these
+ * are *not* meant for actual production APIs. As this here is for showcasing,
+ * acting as a playground thusly, both are enabled. For details, see also:
+ * https://www.apollographql.com/docs/apollo-server/testing/graphql-playground/
+ */
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   resolveFunctions,
   context: passContext,
   introspection: true,
+  playground: true,
 });
 server.applyMiddleware({ app, path: graphqlEndpoint });
 
