@@ -61,7 +61,7 @@
     "jasmine": "^3.6.1",
     "jasmine-expect": "^3.8.4",
     "jest": "^23.6.0",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.19.4"
   }
 }
