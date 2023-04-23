@@ -60,7 +60,7 @@
     "fetch-cookie": "^0.7.3",
     "jasmine": "^3.6.1",
     "jasmine-expect": "^3.8.4",
-    "jest": "^23.6.0",
+    "jest": "^29.5.0",
     "node-fetch": "^2.6.1",
     "nodemon": "^1.19.4"
   }
